@@ -3,23 +3,26 @@ provides-top-level:
 provides-nominal:
 provides-member:
 - ["5Vapor7DropletC", ""]
+- ["5Vapor7DropletC", "saveMessage"]
+- ["5Vapor7DropletC", "saveNewUserSession"]
+- ["5Vapor7DropletC", "messagesToNode"]
 - ["5Vapor7DropletC", "setupRoutes"]
 provides-dynamic-lookup:
 depends-top-level:
 - !private "!"
 - !private "=="
 - !private "??"
-- !private "AssignmentPrecedence"
+- "AssignmentPrecedence"
 - "BooleanLiteralType"
 - !private "DataManager"
 - "Dictionary"
 - "Droplet"
 - !private "Message"
-- !private "Node"
+- "Node"
 - !private "PostController"
-- !private "String"
+- "Request"
+- "String"
 - !private "StringLiteralType"
-- !private "print"
 depends-member:
 - !private ["Sa", "append"]
 - !private ["Sa", "init"]
@@ -70,13 +73,16 @@ depends-member:
 - !private ["s9DecodableP", "init"]
 - !private ["5Vapor7DropletC", "DataManager"]
 - !private ["5Vapor7DropletC", "Message"]
-- !private ["5Vapor7DropletC", "Node"]
+- ["5Vapor7DropletC", "Node"]
 - !private ["5Vapor7DropletC", "PostController"]
-- !private ["5Vapor7DropletC", "String"]
+- ["5Vapor7DropletC", "Request"]
+- ["5Vapor7DropletC", "String"]
 - !private ["5Vapor7DropletC", "get"]
+- ["5Vapor7DropletC", "messagesToNode"]
 - !private ["5Vapor7DropletC", "post"]
-- !private ["5Vapor7DropletC", "print"]
 - !private ["5Vapor7DropletC", "resource"]
+- ["5Vapor7DropletC", "saveMessage"]
+- ["5Vapor7DropletC", "saveNewUserSession"]
 - ["5Vapor7DropletC", "setupRoutes"]
 - !private ["5Vapor7DropletC", "view"]
 - !private ["4SMTP25EmailAddressRepresentableP", "characters"]
@@ -246,9 +252,11 @@ depends-member:
 - !private ["4HTTP9ResponderP", "Node"]
 - !private ["4HTTP9ResponderP", "PostController"]
 - !private ["4HTTP9ResponderP", "get"]
+- !private ["4HTTP9ResponderP", "messagesToNode"]
 - !private ["4HTTP9ResponderP", "post"]
-- !private ["4HTTP9ResponderP", "print"]
 - !private ["4HTTP9ResponderP", "resource"]
+- !private ["4HTTP9ResponderP", "saveMessage"]
+- !private ["4HTTP9ResponderP", "saveNewUserSession"]
 - !private ["4HTTP9ResponderP", "view"]
 - !private ["4HTTP21ResponseRepresentableP", "characters"]
 - !private ["4HTTP21ResponseRepresentableP", "init"]
@@ -257,9 +265,11 @@ depends-member:
 - !private ["7Routing12RouteBuilderP", "Node"]
 - !private ["7Routing12RouteBuilderP", "PostController"]
 - !private ["7Routing12RouteBuilderP", "get"]
+- !private ["7Routing12RouteBuilderP", "messagesToNode"]
 - !private ["7Routing12RouteBuilderP", "post"]
-- !private ["7Routing12RouteBuilderP", "print"]
 - !private ["7Routing12RouteBuilderP", "resource"]
+- !private ["7Routing12RouteBuilderP", "saveMessage"]
+- !private ["7Routing12RouteBuilderP", "saveNewUserSession"]
 - !private ["7Routing12RouteBuilderP", "view"]
 - !private ["6Fluent14RowConvertibleP", "init"]
 - !private ["6Fluent14RowConvertibleP", "makeNode"]
@@ -448,7 +458,6 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/URI.swiftmodule"
-- "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/MySQL.swiftmodule"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/JSON.swiftmodule"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/SMTP.swiftmodule"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/HTTP.swiftmodule"
@@ -470,10 +479,8 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/Crypto.swiftmodule"
-- "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/MySQLProvider.swiftmodule"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/LeafProvider.swiftmodule"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/FluentProvider.swiftmodule"
-- "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/MySQLDriver.swiftmodule"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/Vapor.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/Branches.swiftmodule"
@@ -492,7 +499,6 @@ depends-external:
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/Transport.swiftmodule"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/sqlite.git--8232814251736334455/Sources/CSQLite/include/sqlite3.h"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/engine.git-3311994267206676365/Sources/CHTTP/include/http_parser.h"
-- "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/cmysql.git-3946220544950307782/module.modulemap"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/ctls.git-9210868160426949823/module.modulemap"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/CHTTP.build/module.modulemap"
 - "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/x86_64-apple-macosx10.10/debug/CSQLite.build/module.modulemap"
@@ -501,4 +507,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-interface-hash: "b0b33146560383547cdfe8dc9ca10424"
+interface-hash: "fb0753e2c64c7117b0ecb38a39e94018"

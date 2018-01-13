@@ -1,6 +1,36 @@
 import Vapor
 
 extension Droplet {
+    
+    func saveMessage (req: Request, userName: String) {
+        if let text = req.data["messageText"]?.string, !text.characters.isEmpty {
+            let message = Message (userName: userName, messageText: text)
+            DataManager.messages.append (message)
+        }
+    }
+    
+    func saveNewUserSession (req: Request) throws {
+        //Creem una nova sessio i guardem el usuari que rebem per la request.
+        guard let userName = req.data["userName"]?.string else {return}
+        let session = try req.assertSession()
+        try session.data.set("userName", userName)
+    }
+    
+    func messagesToNode (userName: String) throws -> [Node]  {
+        var messages = [Node] ()
+        for message in DataManager.messages {
+            let messageAux = Message (userName: message.userName, messageText: message.messageText)
+            if messageAux.userName == (userName) {
+                messageAux.owner = "owner"
+            } else {
+                messageAux.owner = "notOwner"
+            }
+            messages.append (try messageAux.makeNode (context: nil))
+        }
+        
+        return messages
+    }
+    
     func setupRoutes() throws {
         post ("chat") { req in
             
@@ -11,12 +41,10 @@ extension Droplet {
             if let userName = req.data["userName"]?.string {
                 currentUserName = userName
                 isUserSaved = false
-                
             }
             
             if isUserSaved {
                 //Si el nom ja esta guardat entra aqui...
-                
                 let session = try req.assertSession()
                 
                 //Agafem el nom guardat a la sessio de l'usuari.
@@ -25,36 +53,20 @@ extension Droplet {
                 }
                 currentUserName = userName
                 //Si existeix un missatge, el guardem a DataManager
-                if let text = req.data["messageText"]?.string, !text.characters.isEmpty {
-                    let message = Message (userName: userName, messageText: text)
-                    DataManager.messages.append (message)
-                }
+                self.saveMessage (req: req, userName: userName);
+                
             } else {
                 //Si el nom no estava guardat entra aqui...
-                //Creem una nova sessio i guardem el usuari que rebem per la request.
-                guard let userName = req.data["userName"]?.string else {return "Error getting user from userAuth"}
-                let session = try req.assertSession()
-                try session.data.set("userName", userName)
+                try self.saveNewUserSession (req: req)
             }
             
             //Convertim a tipus Node tots els missatges de DataManager
-            var messages = [Node] ()
-            for message in DataManager.messages {
-                let messageAux = Message (userName: message.userName, messageText: message.messageText)
-                if messageAux.userName == (currentUserName ?? "") {
-                    messageAux.owner = "owner"
-                } else {
-                    messageAux.owner = "notOwner"
-                }
-                print ("Nom usuari: ", messageAux.userName, "Missatge: ", messageAux.messageText, "owner: ", messageAux.owner)
-                messages.append (try messageAux.makeNode (context: nil))
-            }
+            let messages = try self.messagesToNode (userName: currentUserName ?? "")
 
             return try self.view.make ("main.leaf", Node (node: ["messages":messages]))
         }
         
         post ("chatSecond") { req in
-            
             var isUserSaved = true
             var currentUserName: String?
             
@@ -67,7 +79,6 @@ extension Droplet {
             
             if isUserSaved {
                 //Si el nom ja esta guardat entra aqui...
-                
                 let session = try req.assertSession()
                 
                 //Agafem el nom guardat a la sessio de l'usuari.
@@ -76,30 +87,14 @@ extension Droplet {
                 }
                 currentUserName = userName
                 //Si existeix un missatge, el guardem a DataManager
-                if let text = req.data["messageText"]?.string, !text.characters.isEmpty {
-                    let message = Message (userName: userName, messageText: text)
-                    DataManager.messages.append (message)
-                }
+                self.saveMessage (req: req, userName: userName)
             } else {
                 //Si el nom no estava guardat entra aqui...
-                //Creem una nova sessio i guardem el usuari que rebem per la request.
-                guard let userName = req.data["userName"]?.string else {return "Error getting user from userAuth"}
-                let session = try req.assertSession()
-                try session.data.set("userName", userName)
+                try self.saveNewUserSession (req: req)
             }
             
             //Convertim a tipus Node tots els missatges de DataManager
-            var messages = [Node] ()
-            for message in DataManager.messages {
-                let messageAux = Message (userName: message.userName, messageText: message.messageText)
-                if messageAux.userName == (currentUserName ?? "") {
-                    messageAux.owner = "owner"
-                } else {
-                    messageAux.owner = "notOwner"
-                }
-                print ("Nom usuari: ", messageAux.userName, "Missatge: ", messageAux.messageText, "owner: ", messageAux.owner)
-                messages.append (try messageAux.makeNode (context: nil))
-            }
+            let messages = try self.messagesToNode (userName: currentUserName ?? "")
             
             return try self.view.make ("main2.leaf", Node (node: ["messages":messages]))
         }

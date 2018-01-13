@@ -5,8 +5,8 @@
     box-sizing: border-box;
 }
 
-body {
-    background: #1ddced;
+html {
+    background: #c5e2ff;
 }
 
 .chatbox {
@@ -23,7 +23,7 @@ body {
     padding: 10px;
     width: 100%;
     height: 450px;
-    background: red;
+    background: #f4f4f4;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -52,7 +52,7 @@ body {
 .chat-message {
     padding: 15px;
     border-radius: 10px;
-    color: red;
+    color: black;
     font-size:1;
     word-break:break-all;
     width: 85%;
@@ -61,12 +61,12 @@ body {
 
 .friend .chat-message {
     margin-right: 15%;
-    background-color: gray;
+    background-color: #e2e2e2;
 }
 
 .self .chat-message {
     margin-left: 15%;
-    background-color: blue;
+    background-color: #c3e4fb;
 }
 
 .chat-form  {
@@ -75,10 +75,10 @@ body {
     align-items: flex-start;
 }
 
-.chat-form textarea {
+.chat-form input {
     background: #fbfbfb;
-    width: 75%;
-    height: 50px;
+    width: 90%;
+    height: 25px;
     border: 2px solid #eee;
     border-radius: 3px;
     resize: none;
@@ -88,15 +88,26 @@ body {
 }
 
 .chat-form button {
-    background-color: blue;
-    padding: 5px 15px;
-    font-size: 30px;
-    color: #fff;
+    background-color: #fff;
+    padding: 2px 0px;
+    font-size: 15px;
+    color: #3293f5;
     border: none;
     border-radius: 3px;
-    box-shadow: 0 3px 0 #0eb2c1;
     cursor: pointer;
     margin-left: 15px;
+}
+
+.chat-info-txt {
+    color: grey;
+    width: 75%;
+    font-size: 80%;
+    padding-right:0px;
+}
+
+.chat-sync {
+    width: 100px;
+    padding-left: 0px;
 }
 
 

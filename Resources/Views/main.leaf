@@ -24,11 +24,14 @@
                         
                     }
                 </div>
-                    <div class="chat-form">
-                        <input type="text">
-                        <button type="submit" id="mybutton2">Send</button>
-                    </div>
-                <button type="submit" id="mybutton">Update</button>
+                <div class="chat-form">
+                    <input type="text">
+                    <button type="submit" id="mybutton2">SEND</button>
+                </div>
+                <div class="chat-info">
+                    <p class="chat-info-txt">Click button "Sync" the first time you enter the chat.</p>
+                    <button type="submit" id="mybutton" class="chat-sync">Sync</button>
+                </div>
             </div>
         </body>
         <script>
@@ -63,7 +66,6 @@
         
         
             function setClicked () {
-                
                 clicked = true;
             }
         
