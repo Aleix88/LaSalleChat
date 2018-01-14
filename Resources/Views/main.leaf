@@ -8,28 +8,16 @@
 
         <body>
             <div class="chatbox" id="chatbox">
-                <div class="chatlogs" id="chatlogs">
-                    #loop(messages, "message") {
-                        #equal(message.owner, "owner") {
-                            <div class="chat self">
-                                <h4 class="chat-username">#(message.userName)</h4>
-                                <p class="chat-message">#(message.messageText)</p>
-                            </div>
-                        } ##equal(message.owner, "notOwner") {
-                            <div class="chat friend">
-                                <h4 class="chat-username"> #(message.userName)</h4>
-                                <p class="chat-message"> #(message.messageText)</p>
-                            </div>
-                        }
-                        
-                    }
+                <div class="chatrefresh" id="chatrefresh">
+                    <div class="chatlogs" id="chatlogs">
+                    </div>
                 </div>
                 <div class="chat-form">
                     <input type="text">
                     <button type="submit" id="mybutton2">SEND</button>
                 </div>
                 <div class="chat-info">
-                    <p class="chat-info-txt">Click button "Sync" the first time you enter the chat.</p>
+                    <p class="chat-info-txt">Press "Sync" to start chatting</p>
                     <button type="submit" id="mybutton" class="chat-sync">Sync</button>
                 </div>
             </div>
@@ -49,14 +37,14 @@
                 pos = $("#()chatlogs2").scrollTop();
                 if (txt && clicked) {
                     $.post ("http://localhost:8080/chatSecond", {messageText: txt}, function(data) {
-                            $("#()chatlogs").html(data);
+                            $("#()chatrefresh").html(data);
                             window.setTimeout(update, 3000);
                             $("#()chatlogs2").scrollTop (pos);
                             });
                     clicked = false;
                 } else {
                     $.post ("http://localhost:8080/chatSecond", function(data) {
-                            $("#()chatlogs").html(data);
+                            $("#()chatrefresh").html(data);
                             window.setTimeout(update, 3000);
                             $("#()chatlogs2").scrollTop (pos);
                             });
