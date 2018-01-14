@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
 options: "155d2e2d92a316ecc084371891c16ba9"
-build_time: [1514398124, 30764000]
+build_time: [1515950800, 740682000]
 inputs:
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/bits.git-9196587591774126515/Sources/Bits/Aliases.swift": [1514398116, 0]
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/bits.git-9196587591774126515/Sources/Bits/Base64Encoder.swift": [1514398116, 0]

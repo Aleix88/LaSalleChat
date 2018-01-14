@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
 options: "64f80dd47ccf5807b9b59d394b393764"
-build_time: [1514993050, 753104000]
+build_time: [1515950865, 879572000]
 inputs:
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/fluent-provider.git-1502561075136423204/Sources/FluentProvider/Cache.swift": [1514918961, 0]
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/fluent-provider.git-1502561075136423204/Sources/FluentProvider/Droplet/Config+Driver.swift": [1514918961, 0]

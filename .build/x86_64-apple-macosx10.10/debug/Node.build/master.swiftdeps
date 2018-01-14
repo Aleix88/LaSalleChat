@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
 options: "198def90ece559d22b0895432f41bdea"
-build_time: [1514992997, 675302000]
+build_time: [1515950808, 849273000]
 inputs:
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/node.git-9175390252000121167/Sources/Node/Accessors/Getters.swift": [1514918962, 0]
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/node.git-9175390252000121167/Sources/Node/Accessors/Setters.swift": [1514918962, 0]

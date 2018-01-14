@@ -33,68 +33,29 @@ extension Droplet {
     
     func setupRoutes() throws {
         post ("chat") { req in
-            
-            var isUserSaved = true
-            var currentUserName: String?
-            
             //Si es el primer cop que l'usuari entra al chat s'haura de guardar el seu nom d'usuari
-            if let userName = req.data["userName"]?.string {
-                currentUserName = userName
-                isUserSaved = false
+            guard let userName = req.data["userName"]?.string else {
+                return "Error fetching user. Try to reload the page."
             }
-            
-            if isUserSaved {
-                //Si el nom ja esta guardat entra aqui...
-                let session = try req.assertSession()
-                
-                //Agafem el nom guardat a la sessio de l'usuari.
-                guard let userName = session.data["userName"]?.string else {
-                    return "error fetching user"
-                }
-                currentUserName = userName
-                //Si existeix un missatge, el guardem a DataManager
-                self.saveMessage (req: req, userName: userName);
-                
-            } else {
-                //Si el nom no estava guardat entra aqui...
-                try self.saveNewUserSession (req: req)
-            }
-            
+            //Guardem el nou d'usuari i creem una nova sessio.
+            try self.saveNewUserSession (req: req)
             //Convertim a tipus Node tots els missatges de DataManager
-            let messages = try self.messagesToNode (userName: currentUserName ?? "")
+            let messages = try self.messagesToNode (userName: userName)
 
             return try self.view.make ("main.leaf", Node (node: ["messages":messages]))
         }
         
         post ("chatSecond") { req in
-            var isUserSaved = true
-            var currentUserName: String?
-            
-            //Si es el primer cop que l'usuari entra al chat s'haura de guardar el seu nom d'usuari
-            if let userName = req.data["userName"]?.string {
-                currentUserName = userName
-                isUserSaved = false
+            let session = try req.assertSession()
                 
+            //Agafem el nom guardat a la sessio de l'usuari.
+            guard let userName = session.data["userName"]?.string else {
+                return "Error fetching user. Try to reload the page."
             }
-            
-            if isUserSaved {
-                //Si el nom ja esta guardat entra aqui...
-                let session = try req.assertSession()
-                
-                //Agafem el nom guardat a la sessio de l'usuari.
-                guard let userName = session.data["userName"]?.string else {
-                    return "error fetching user"
-                }
-                currentUserName = userName
-                //Si existeix un missatge, el guardem a DataManager
-                self.saveMessage (req: req, userName: userName)
-            } else {
-                //Si el nom no estava guardat entra aqui...
-                try self.saveNewUserSession (req: req)
-            }
-            
+            //Si existeix un missatge, el guardem a DataManager
+            self.saveMessage (req: req, userName: userName)
             //Convertim a tipus Node tots els missatges de DataManager
-            let messages = try self.messagesToNode (userName: currentUserName ?? "")
+            let messages = try self.messagesToNode (userName: userName)
             
             return try self.view.make ("main2.leaf", Node (node: ["messages":messages]))
         }

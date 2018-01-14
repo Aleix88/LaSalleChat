@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
 options: "0b30393f86f77118093c077f28270ea1"
-build_time: [1514992997, 318110000]
+build_time: [1515950808, 474464000]
 inputs:
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/console.git--2431895819212044213/Sources/Console/Bar/Bar.swift": [1514918961, 0]
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/console.git--2431895819212044213/Sources/Console/Bar/Loading/Console+LoadingBar.swift": [1514918961, 0]
@@ -30,7 +30,7 @@ inputs:
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/console.git--2431895819212044213/Sources/Console/Stream/FileHandle+Stream.swift": [1514918961, 0]
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/console.git--2431895819212044213/Sources/Console/Stream/Pipe+Stream.swift": [1514918961, 0]
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/console.git--2431895819212044213/Sources/Console/Stream/Stream.swift": [1514918961, 0]
-  "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/console.git--2431895819212044213/Sources/Console/Swift3.swift": [9223372036, 854775807]
+  "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/console.git--2431895819212044213/Sources/Console/Swift3.swift": [1514918961, 0]
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/console.git--2431895819212044213/Sources/Console/Terminal/ConsoleColor+Terminal.swift": [1514918961, 0]
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/console.git--2431895819212044213/Sources/Console/Terminal/ConsoleStyle+Terminal.swift": [1514918961, 0]
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/console.git--2431895819212044213/Sources/Console/Terminal/String+ANSI.swift": [1514918961, 0]

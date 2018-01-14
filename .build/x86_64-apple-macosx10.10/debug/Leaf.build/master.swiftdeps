@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
 options: "0700838e37f516f3ce345c5ad60f2c79"
-build_time: [1514996480, 907218000]
+build_time: [1515950823, 149814000]
 inputs:
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/leaf.git-9164445114487378533/Sources/Leaf/Argument.swift": [1514996473, 0]
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/leaf.git-9164445114487378533/Sources/Leaf/Buffer/Buffer+Leaf.swift": [1514996473, 0]

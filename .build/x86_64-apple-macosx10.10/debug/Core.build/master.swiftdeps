@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
 options: "d254140ecf6cd7c8e009c562dc67fcd2"
-build_time: [1514992994, 640788000]
+build_time: [1515950805, 989835000]
 inputs:
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/core.git-9210800844849382486/Sources/Core/Array.swift": [1514918960, 0]
   "/Users/AleixDiaz/Desktop/VaporProject/LaSalleChat/.build/checkouts/core.git-9210800844849382486/Sources/Core/Bits.swift": [1514918960, 0]
